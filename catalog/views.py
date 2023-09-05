@@ -12,7 +12,6 @@ def home(request):
 
 
 def contacts(request):
-
     context = {
         'title': 'Contacts',
         'adress_info': Contact.objects.first(),
@@ -24,3 +23,9 @@ def contacts(request):
         visiter['message'] = request.POST.get('message', None)
         print(visiter)
     return render(request, "catalog/contacts.html", context=context)
+
+
+def detail_product(request, pk: int):
+    product = Product.objects.get(pk=pk)
+    context = {"product": product}
+    return render(request, 'catalog/product_detail.html', context=context)
