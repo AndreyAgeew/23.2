@@ -28,6 +28,9 @@ class Product(models.Model):
     def get_preview(self):
         return self.preview_description.split('-')[1:]
 
+    def short_desription(self):
+        return self.description[:100] + '...'
+
 
 class Contact(models.Model):
     country = models.CharField(max_length=100)
