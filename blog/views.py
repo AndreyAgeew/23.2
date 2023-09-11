@@ -6,8 +6,6 @@ from pytils.translit import slugify
 from blog.models import BlogPost
 from skystore import settings
 
-ITEM_ON_PAGE = 4
-
 
 class BlogPostCreateView(CreateView):
     model = BlogPost
