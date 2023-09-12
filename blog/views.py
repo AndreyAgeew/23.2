@@ -42,12 +42,12 @@ class BlogPostDetailView(DetailView):
         self.object.views_count += 1
         self.object.save()
         if self.object.views_count == 100:
-            send_mail(
-                'Поздравляю!',
-                f'У Вас 100 просмотров по записи "{self.object.title}" в блоге!',
-                settings.EMAIL_HOST_USER,
-                settings.EMAIL_HOST_USER,
-            )
+            send_mail(subject="Отправка письма",
+                      message=f'Поздравляю! У Вас 100 просмотров по записи "{self.object.title}" в блоге!',
+                      from_email=settings.EMAIL_HOST_USER,
+                      recipient_list=['mr1993@bk.ru'],
+                      fail_silently=False
+                      )
         self.object.save()
         return self.object
 
@@ -67,7 +67,7 @@ class BlogPostUpdateView(UpdateView):
         return super().form_valid(form)
 
     def get_success_url(self):
-        return reverse('blog:view', args=[self.kwargs.get('slug')])
+        return reverse('blog:detail', args=[self.kwargs.get('slug')])
 
 
 class BlogPostDeleteView(DeleteView):
