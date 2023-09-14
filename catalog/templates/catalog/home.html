@@ -15,12 +15,17 @@
                 <div class="col-4">
                     <div class="card mb-4 box-shadow">
                         <div class="card-header">
-                            <a href="/product/{{ product.pk }}">
+                            <a href="/product/{{ product.name }}">
                                 <img src="{% mediafile product.image %}" alt="" style="max-width: 75%;">
                             </a>
                         </div>
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$ {{ product.price }}</h1>
+                            {% if product.active_version %}
+                                <p>Активная версия: {{ product.active_version.version_name }}</p>
+                            {% else %}
+                                <p>Нет активной версии</p>
+                            {% endif %}
                             <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                                 {% for preview in product.get_preview %}
                                     <li>-{{ preview }}</li>
