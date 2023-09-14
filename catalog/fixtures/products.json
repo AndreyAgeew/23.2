@@ -4,13 +4,13 @@
     "pk": 1,
     "fields": {
       "name": "Базовая",
-      "description": "Здесь будет находится описание подписки базовая",
+      "description": "здесь будет находится описание подписки базовая",
       "preview_description": "-Лицензия на месяц",
       "image": "products_images/basic.gif",
       "category": 1,
       "price": "30.00",
-      "created_at": "2023-08-31T18:58:06.511Z",
-      "last_modified": "2023-09-01T13:20:09.180Z"
+      "created_at": "2023-09-14T12:46:33.794Z",
+      "last_modified": "2023-09-14T13:24:58.716Z"
     }
   },
   {
@@ -23,8 +23,8 @@
       "image": "products_images/premium.gif",
       "category": 1,
       "price": "100.00",
-      "created_at": "2023-08-31T20:03:35.679Z",
-      "last_modified": "2023-09-01T13:19:32.073Z"
+      "created_at": "2023-09-14T12:46:33.796Z",
+      "last_modified": "2023-09-14T12:46:33.796Z"
     }
   },
   {
@@ -37,8 +37,8 @@
       "image": "products_images/personal.gif",
       "category": 1,
       "price": "159.00",
-      "created_at": "2023-08-31T20:28:57.048Z",
-      "last_modified": "2023-09-01T13:19:39.918Z"
+      "created_at": "2023-09-14T12:46:33.797Z",
+      "last_modified": "2023-09-14T12:46:33.797Z"
     }
   },
   {
@@ -51,8 +51,8 @@
       "image": "products_images/elite.gif",
       "category": 1,
       "price": "250.00",
-      "created_at": "2023-08-31T20:31:52.071Z",
-      "last_modified": "2023-09-01T13:18:19.780Z"
+      "created_at": "2023-09-14T12:46:33.798Z",
+      "last_modified": "2023-09-14T12:46:33.798Z"
     }
   },
   {
@@ -65,36 +65,50 @@
       "image": "products_images/super-elite.gif",
       "category": 1,
       "price": "300.00",
-      "created_at": "2023-08-31T20:37:28.557Z",
-      "last_modified": "2023-09-01T13:17:25.798Z"
+      "created_at": "2023-09-14T12:46:33.799Z",
+      "last_modified": "2023-09-14T12:46:33.799Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 6,
     "fields": {
-      "name": "Python Code",
-      "description": "Здесь будет находится описание по помощи с python кодом",
+      "name": "python",
+      "description": "здесь будет находится описание по помощи с python кодом",
       "preview_description": "-web developer (Django, Flask)\r\n-data analysis or data science\r\n-desktop app (Tkinter, PyQt5)\r\n-mobile developer (Kivy)\r\n-game developer (Pygame)",
       "image": "products_images/python.gif",
       "category": 2,
       "price": "99.99",
-      "created_at": "2023-09-01T11:14:03.808Z",
-      "last_modified": "2023-09-01T13:15:01.624Z"
+      "created_at": "2023-09-14T12:46:33.799Z",
+      "last_modified": "2023-09-14T13:45:25.843Z"
     }
   },
   {
     "model": "catalog.product",
     "pk": 7,
     "fields": {
-      "name": "С#",
-      "description": "Здесь будет описание помощи по коду С#",
+      "name": "c-sharp",
+      "description": "здесь будет описание помощи по коду с#",
       "preview_description": "-ASP.Net Core\r\n-GraphQL, gRPC и SignalR Core\r\n-ReactJS\r\n-Docker\r\n-CI/CD и Kubernetes\r\n-RabbitMQ",
       "image": "products_images/C.gif",
       "category": 2,
       "price": "99.99",
-      "created_at": "2023-09-01T11:20:50.620Z",
-      "last_modified": "2023-09-01T13:14:34.279Z"
+      "created_at": "2023-09-14T12:46:33.800Z",
+      "last_modified": "2023-09-14T13:45:02.149Z"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 9,
+    "fields": {
+      "name": "javascrypt",
+      "description": "здесь будет находится описание по помощи с js кодом",
+      "preview_description": "-HTML, CSS, JavaScript, React, Angular, Vue.js.\r\n-TensorFlow.js, Brain.js, D3.js \r\n-React Native, NativeScript.\r\n-Electron.js, NW.js.\r\n-Phaser.js, Three.js, Babylon.js.",
+      "image": "products_images/js_Am47hhY.gif",
+      "category": 2,
+      "price": "99.99",
+      "created_at": "2023-09-14T14:23:29.784Z",
+      "last_modified": "2023-09-14T14:23:29.789Z"
     }
   }
 ]
