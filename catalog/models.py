@@ -1,5 +1,7 @@
 from django.db import models
 
+from users.models import User
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -21,6 +23,7 @@ class Product(models.Model):
     price = models.DecimalField(max_digits=8, decimal_places=2)
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
+    owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
 
     def __str__(self):
         return f"Product(pk={self.pk}, name={self.name!r})"
@@ -43,9 +46,9 @@ class Contact(models.Model):
 
 class Version(models.Model):
     products = models.ManyToManyField(Product, related_name='versions', blank=True)
-    version_number = models.CharField(max_length=50)
-    version_name = models.CharField(max_length=200)
+    number = models.CharField(max_length=50)
+    name = models.CharField(max_length=200)
     is_active = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"{self.version_name}"
+        return self.name

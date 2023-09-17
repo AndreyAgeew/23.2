@@ -23,7 +23,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Version)
 class VersionAdmin(admin.ModelAdmin):
-    list_display = "pk", "get_product_names", "version_number", "version_name", "is_active"
+    list_display = "pk", "get_product_names", "number", "name", "is_active"
 
     def get_product_names(self, obj):
         return '; '.join([product.name for product in obj.products.all()])

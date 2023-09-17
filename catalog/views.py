@@ -34,6 +34,7 @@ class ProductCreateView(CreateView):
 
     def form_valid(self, form):
         new_product = form.save()
+        new_product.owner = self.request.user
         new_product.save()
         selected_version = form.cleaned_data['version']
         selected_version.products.add(new_product)
@@ -96,11 +97,3 @@ class ContactDetailView(ListView):
     model = Contact
     template_name = 'catalog/contacts.html'
     context_object_name = 'contact'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        name = self.kwargs.get('name')
-        product = get_object_or_404(Product, name=name)
-        product.active_version = product.versions.filter(is_active=True).first()
-        context['product'] = product
-        return context
