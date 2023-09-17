@@ -22,7 +22,7 @@
                         <div class="card-body">
                             <h1 class="card-title pricing-card-title">$ {{ product.price }}</h1>
                             {% if product.active_version %}
-                                <p>Активная версия: {{ product.active_version.version_name }}</p>
+                                <p>Активная версия: {{ product.active_version.name }}</p>
                             {% else %}
                                 <p>Нет активной версии</p>
                             {% endif %}

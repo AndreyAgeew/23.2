@@ -15,7 +15,7 @@
                 </div>
                 <div class="card-body">
                     <a href="{% url 'blog:detail' item.id %}">
-                          <img alt="Фото товара" style="width: 75%" src="{% mediafile item.preview %} "/>
+                          <img alt="Фото товара" style="width: 75%" src="{% mediafile item.preview_image %} "/>
                     </a>
                     <ul class="list-unstyled mt-3 mb-4 text-start m-3">
                         <li>Содержание: {{ item.content|truncatechars:100 }}</li>
