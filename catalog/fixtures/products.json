@@ -99,7 +99,7 @@
   },
   {
     "model": "catalog.product",
-    "pk": 9,
+    "pk": 8,
     "fields": {
       "name": "javascrypt",
       "description": "здесь будет находится описание по помощи с js кодом",

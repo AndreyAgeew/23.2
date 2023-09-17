@@ -3,8 +3,8 @@
     "model": "catalog.version",
     "pk": 1,
     "fields": {
-      "version_number": "2.0",
-      "version_name": "Sunrise Breeze",
+      "number": "2.0",
+      "name": "Sunrise Breeze",
       "is_active": true,
       "products": [
         2,
@@ -16,8 +16,8 @@
     "model": "catalog.version",
     "pk": 2,
     "fields": {
-      "version_number": "3.0",
-      "version_name": "Moonlight Glow",
+      "number": "3.0",
+      "name": "Moonlight Glow",
       "is_active": true,
       "products": [
         4,
@@ -29,8 +29,8 @@
     "model": "catalog.version",
     "pk": 3,
     "fields": {
-      "version_number": "4.0",
-      "version_name": "Stellar Odyssey",
+      "number": "4.0",
+      "name": "Stellar Odyssey",
       "is_active": true,
       "products": [
         5
@@ -41,11 +41,11 @@
     "model": "catalog.version",
     "pk": 4,
     "fields": {
-      "version_number": "5.0",
-      "version_name": "prototype",
+      "number": "5.0",
+      "name": "prototype",
       "is_active": false,
       "products": [
-        9,
+        8,
         7,
         6
       ]

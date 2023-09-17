@@ -54,8 +54,8 @@ class Command(BaseCommand):
                 version_data = json.load(file)
                 for item in version_data:
                     version = Version.objects.create(
-                        version_number=item['fields']['version_number'],
-                        version_name=item['fields']['version_name'],
+                        number=item['fields']['number'],
+                        name=item['fields']['name'],
                         is_active=item['fields']['is_active']
                     )
                     version.products.set(item['fields']['products'])
