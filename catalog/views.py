@@ -1,4 +1,6 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.forms import formset_factory
+from django.http import Http404
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy
 from django.views.generic import ListView, DetailView
@@ -14,14 +16,15 @@ class ProductListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        products = Product.objects.all()[:6]
+        products = [product for product in Product.objects.all() if product.is_published][:6]
+
         for product in products:
             product.active_version = product.versions.filter(is_active=True).first()
         context['products'] = products
         return context
 
 
-class ProductCreateView(CreateView):
+class ProductCreateView(LoginRequiredMixin, CreateView):
     model = Product
     form_class = ProductForm
     success_url = '/'
@@ -57,7 +60,7 @@ class ProductDetailView(DetailView):
         return context
 
 
-class ProductUpdateView(UpdateView):
+class ProductUpdateView(LoginRequiredMixin, UpdateView):
     model = Product
     form_class = ProductForm
     context_object_name = 'product'
@@ -65,7 +68,11 @@ class ProductUpdateView(UpdateView):
 
     def get_object(self, queryset=None):
         name = self.kwargs.get('name')
-        return get_object_or_404(Product, name=name)
+        product = get_object_or_404(Product, name=name)
+        if product.owner != self.request.user and not self.request.user.is_staff:
+            raise Http404
+
+        return product
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -83,14 +90,18 @@ class ProductUpdateView(UpdateView):
         return super().form_valid(form)
 
 
-class ProductDeleteView(DeleteView):
+class ProductDeleteView(LoginRequiredMixin, DeleteView):
     model = Product
     context_object_name = 'product'
     success_url = reverse_lazy("catalog:product_list")
 
     def get_object(self, queryset=None):
         name = self.kwargs.get('name')
-        return get_object_or_404(Product, name=name)
+        product = get_object_or_404(Product, name=name)
+        if product.owner != self.request.user:
+            raise Http404
+
+        return product
 
 
 class ContactDetailView(ListView):

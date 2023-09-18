@@ -24,6 +24,7 @@ class Product(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     last_modified = models.DateTimeField(auto_now=True)
     owner = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
+    is_published = models.BooleanField(default=True)
 
     def __str__(self):
         return f"Product(pk={self.pk}, name={self.name!r})"
